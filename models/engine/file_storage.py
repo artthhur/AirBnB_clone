@@ -12,6 +12,7 @@ from models.review import Review
 
 class FileStorage:
     """ represent a storage engine
+    
     Attributes:
         __file_path: name of the file that will contains objects
         __objects: dictionary of objects"""
