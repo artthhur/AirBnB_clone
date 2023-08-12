@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Test for BaseModel Class"""
 from unittest import TestCase, mock, main
 from models.base_model import BaseModel
