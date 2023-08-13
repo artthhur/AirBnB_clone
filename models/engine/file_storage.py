@@ -12,7 +12,7 @@ from models.review import Review
 
 class FileStorage:
     """ represent a storage engine
-    
+
     Attributes:
         __file_path: name of the file that will contains objects
         __objects: dictionary of objects"""
@@ -31,11 +31,10 @@ class FileStorage:
 
     def save(self):
         """ serializes __objects to the JSON file """
-        dictObj = {k: self.__objects[k].to_dict()
-                     for k in self.__objects.keys()}
+        dictO = {k: self.__objects[k].to_dict() for k in self.__objects.keys()}
 
         with open(self.__file_path, "w") as f:
-            json.dump(dictObj, f)
+            json.dump(dictO, f)
 
     def reload(self):
         """ deserializes the JSON file to __objects """

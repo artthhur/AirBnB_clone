@@ -33,7 +33,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command  to exit the program"""
         return True
-    
+
     def emptyline(self):
         """Do nothing when receiving an empty line"""
         pass
@@ -157,12 +157,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, line):
         """Returns the number of class instances"""
-        
+
         args = self.split(line)
         count = 0
         for obj in models.storage.all().values():
-             if args[0] == obj.__class__.__name__:
-                  count += 1
+            if args[0] == obj.__class__.__name__:
+                count += 1
         print(count)
 
     @staticmethod
@@ -195,7 +195,7 @@ class HBNBCommand(cmd.Cmd):
 
         args = [arg for arg in args if arg != '']
         args.insert(0, _args[0])
-        return args    
+        return args
 
 
 if __name__ == '__main__':
