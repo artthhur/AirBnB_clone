@@ -33,6 +33,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command  to exit the program"""
         return True
+    
     def emptyline(self):
         """Do nothing when receiving an empty line"""
         pass
@@ -77,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, line):
         """Prints string representation of class
         instance Usage:show <class> <id>"""
-        
+
         args = self.split(line)
 
         if len(args) == 1 and args[0] == "":
