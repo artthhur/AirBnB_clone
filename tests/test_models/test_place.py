@@ -184,6 +184,5 @@ class TestPlace(TestCase):
         self.assertEqual(place.longitude, 4898.11)
 
 
-
 if __name__ == "__main__":
     main()

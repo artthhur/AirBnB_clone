@@ -14,6 +14,7 @@ import json
 import models
 import os
 
+
 class TestConsole_prompt(TestCase):
     """Test console prompt"""
 
@@ -87,6 +88,7 @@ class TestConsole_help(TestCase):
             HBNBCommand().onecmd("help update")
             self.assertEqual(e, output.getvalue().strip())
 
+
 class TestConsole_create(TestCase):
     """Test create command"""
 
@@ -99,7 +101,7 @@ class TestConsole_create(TestCase):
             HBNBCommand().onecmd("create")
             self.assertEqual(e, output.getvalue().strip())
 
-      def test_create_with_non_exist_class(self):
+    def test_create_with_non_exist_class(self):
         """test create with non exist class"""
         e = "** class doesn't exist **"
         with mock.patch('sys.stdout', new=StringIO()) as output:
@@ -205,11 +207,12 @@ class TestConsole_show(TestCase):
             HBNBCommand().onecmd("show BaseModel {}".format(base_id))
             self.assertEqual(exp, output.getvalue().strip())
 
+
 class TestConsole_all(TestCase):
     """Test all command"""
 
     file_path = "SSfile.json"
-    
+
     def setUp(self):
         """executes before each test"""
         FileStorage._FileStorage__objects = {}
@@ -271,6 +274,7 @@ class TestConsole_destroy(TestCase):
     """Test destroy command"""
 
     file_path = "SSfile.json"
+
     def test_destroy_missing_class(self):
         """test destroy missing class"""
         expected_output = "** class name missing **"
@@ -317,6 +321,7 @@ class TestConsole_destroy(TestCase):
         with open(self.file_path, "r") as f:
             objs = json.load(f)
             self.assertNotIn("BaseModel.{}".format(base.id), objs.keys())
+
 
 class TestConsole_update(TestCase):
     """Test update command"""
@@ -416,6 +421,7 @@ class TestConsole_update(TestCase):
         HBNBCommand().onecmd(line.format(user.id))
         self.assertEqual(user.first_name, "name1")
         self.assertEqual(user.last_name, "")
+
 
 class TestConsole_default(TestCase):
     """Test case of Console default"""
@@ -692,6 +698,7 @@ class TestConsole_default(TestCase):
         cmd = 'Review.update("{}", {})'.format(review.id, r_dict)
         HBNBCommand().onecmd(cmd)
         self.assertEqual(review.text, "Thanks ")
+
 
 if __name__ == "__main__":
     main()
