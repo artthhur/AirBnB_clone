@@ -45,7 +45,7 @@ class HBNBCommand(cmd.Cmd):
             "show": self.do_show,
             "destroy": self.do_destroy,
             "update": self.do_update,
-            "count": self.count
+            "count": self.do_count
         }
 
         dot = re.search(r'\.', line)
@@ -196,6 +196,20 @@ class HBNBCommand(cmd.Cmd):
         args = [arg for arg in args if arg != '']
         args.insert(0, _args[0])
         return args
+
+    def do_all(self, line):
+        """Prints string  representation of all class instances
+        Usage:all <class>"""
+        args = self.split(line)
+        objects = models.storage.all()
+
+        if len(args) == 1 and args[0] == "":
+            print([obj.__str__() for obj in objects.values()])
+        elif args[0] not in self.__classNames:
+            print("** class doesn't exist **")
+        else:
+            print([obj.__str__() for obj in objects.values()
+                   if obj.__class__.__name__ == args[0]])
 
 
 if __name__ == '__main__':
